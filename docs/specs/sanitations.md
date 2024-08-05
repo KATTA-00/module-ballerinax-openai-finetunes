@@ -19,8 +19,16 @@ This document records the sanitation done on top of the official OpenAPI specifi
    - **Reasons**: The original configuration was generated successfully, but it caused a compile-time error. Updating the parameters resolved this error, enhancing the overall functionality and ensuring smooth compilation.
 
 
-2. **removing `default:null` of certain schemas**:
+2. **Removed the `default:null` property of certain schemas**:
+
    - **Changed Schemas**: `CreateCompletionRequest`,`ChatCompletionStreamOptions`,`CreateChatCompletionRequest`
+
+   - **Original**:
+      - defaullt: `null`
+
+   - **Updated**:
+      - Removed the `default` parameter 
+
    - **Reason**: This change is done as a workaround for ballerina openapi tool not allowing to generate the client.
 
 ## OpenAPI cli command
@@ -28,6 +36,6 @@ This document records the sanitation done on top of the official OpenAPI specifi
 The following command was used to generate the Ballerina client from the OpenAPI specification. The command should be executed from the repository root directory.
 
 ```bash
-bal openapi -i docs/spec/openapi.json --mode client --license docs/license.txt -o ballerina
+bal openapi -i docs/spec/openapi.json --mode client --license docs/license.txt -o ballerina --tags 'Fine-tuning','Files','Models'
 ```
 Note: The license year is hardcoded to 2024, change if necessary.
