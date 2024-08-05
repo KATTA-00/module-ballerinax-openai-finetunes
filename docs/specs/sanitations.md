@@ -1,24 +1,24 @@
-_Authors_: @vish-mv @loshan20011  \
-_Created_: 2024/03/26 \
-_Updated_: 2024/03/26 \
+_Authors_: @kanishkagu  \
+_Created_: 2024/08/05 \
+_Updated_: 2024/08/05 \
 _Edition_: Swan Lake
 
 # Sanitation for OpenAPI specification
 
-This document records the sanitation done on top of the official OpenAPI specification from Twitter (X). The OpenAPI specification is obtained from the [Twitter OpenAPI Documentation](https://api.twitter.com/2/openapi.json/). These changes are implemented to enhance the overall usability and readability of the generated client.
+This document records the sanitation done on top of the official OpenAPI specification from OpenAI Finetune (X). The OpenAPI specification is obtained from the [OpenAPI specification for the OpenAI API](https://github.com/openai/openai-openapi/blob/master/openapi.yaml). These changes are implemented to enhance the overall usability and readability of the generated client.
 
-1. **Change the `url` property of the `servers` object**:
-   - **Original**: `https://api.twitter.com`
-   - **Updated**: `https://api.twitter.com/2`
-   - **Reason**: This change is made to ensure that all API paths are relative to the versioned base URL (`/2`), which improves the consistency and usability of the APIs.
+1. **Change the status_details property parameters of the 'OpenAIFile' object**:
+   - **Original**:
+      - Deprecated: `true`
+      - Nullable parameter: Not included
 
-2. **Update API Paths**:
-   - **Original**: Paths included the version prefix in each endpoint (e.g., `/2/compliance/jobs`).
-   - **Updated**: Paths are modified to remove the version prefix from the endpoints, as it is now included in the base URL. For example:
-     - **Original**: `/2/compliance/jobs`
-     - **Updated**: `/compliance/jobs`
-   - **Reason**: This modification simplifies the API paths, making them shorter and more readable. It also centralizes the versioning to the base URL, which is a common best practice.
+   - **Updated**:
+      - Removed the `deprecated` parameter
+      - Added the `nullable` parameter as `true`
 
+   - **Reasons**: The original configuration was generated successfully, but it caused a compile-time error. Updating the parameters resolved this error, enhancing the overall functionality and ensuring smooth compilation.
+
+2. **Comment out the defualt null parameters**
 
 ## OpenAPI cli command
 
