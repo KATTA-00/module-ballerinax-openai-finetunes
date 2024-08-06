@@ -6,6 +6,7 @@
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/KATTA-00/module-ballerinax-openai-finetunes.svg)](https://github.com/KATTA-00/module-ballerinax-openai-finetunes/commits/master)
 [![GitHub Issues](https://img.shields.io/github/issues/KATTA-00/ballerina-library/module/openai.finetunes.svg?label=Open%20Issues)](https://github.com/KATTA-00/ballerina-library/labels/module%openai.finetunes)
 
+
 ## Overview
 
 This is a generated connector for the [OpenAI Fine-tunes API](https://platform.openai.com/docs/api-reference/fine-tuning) OpenAPI specification. OpenAI is an American artificial intelligence research laboratory consisting of a non-profit corporation and a for-profit subsidiary. OpenAI conducts AI research with the declared intention of promoting and developing friendly AI. The OpenAI Fine-tunes API provides a way to customize new AI models developed by OpenAI for your specific needs.
@@ -27,7 +28,7 @@ To use the OpenAI Connector, you must have access to the OpenAI API through a [O
 4. Fill the details and click on Create secret key
 <img src=https://raw.githubusercontent.com/G5andeepD/module-ballerinax-openai-images/docs/docs/setup/resources/saved-key.png alt="Twitter Developer Portal" style="width: 70%;">
 
-5. Store the secret key securely to use in your application
+5. Store the API key securely to use in your application
 
 ## Quickstart
 
@@ -43,13 +44,13 @@ import ballerina/io;
 
 ### Step 2: Create a new connector instance
 
-1. Create a `Config.toml` file and, configure the obtained secret key in the above steps as follows:
+1. Create a `Config.toml` file and, configure the obtained API key in the above steps as follows:
 
 ```bash
-token = "<Secret Key>"
+token = "<API Key>"
 ```
 
-2. Create and initialize a `finetunes:Client` with the  obtained `apiKey`.
+2. Create and initialize a `finetunes:Client` with the obtained `token`.
 
 ```ballerina
 finetunes:Client finetunesClient = check new ({

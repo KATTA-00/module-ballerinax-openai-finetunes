@@ -20,7 +20,7 @@ To use the OpenAI Connector, you must have access to the OpenAI API through a [O
 4. Fill the details and click on Create secret key
 <img src=https://raw.githubusercontent.com/G5andeepD/module-ballerinax-openai-images/docs/docs/setup/resources/saved-key.png alt="Twitter Developer Portal" style="width: 70%;">
 
-5. Store the secret key securely to use in your application
+5. Store the API key securely to use in your application
 
 ## Quickstart
 
@@ -36,13 +36,13 @@ import ballerina/io;
 
 ### Step 2: Create a new connector instance
 
-1. Create a `Config.toml` file and, configure the obtained secret key in the above steps as follows:
+1. Create a `Config.toml` file and, configure the obtained API key in the above steps as follows:
 
 ```bash
-token = "<Secret Key>"
+token = "<API Key>"
 ```
 
-2. Create and initialize a `finetunes:Client` with the  obtained `apiKey`.
+2. Create and initialize a `finetunes:Client` with the obtained `token`.
 
 ```ballerina
 finetunes:Client finetunesClient = check new ({
