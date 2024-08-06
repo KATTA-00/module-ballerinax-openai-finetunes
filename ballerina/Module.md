@@ -5,7 +5,22 @@ This is a generated connector for the [OpenAI Fine-tunes API](https://platform.o
 
 ## Setup guide
 
-[//]: # (TODO: Add detailed steps to obtain credentials and configure the module.)
+To use the OpenAI Connector, you must have access to the OpenAI API through a [OpenAI Platform account](https://platform.openai.com) and a project under it. If you do not have a OpenAI Platform account, you can sign up for one [here](https://platform.openai.com/signup).
+
+#### Create a OpenAI API Key
+
+1. Open the [OpenAI Platform Dashboard](https://platform.openai.com).
+
+2. Navigate to Dashboard -> API keys
+<img src=https://raw.githubusercontent.com/G5andeepD/module-ballerinax-openai-images/docs/docs/setup/resources/api-key-dashboard.png alt="Twitter Developer Portal" style="width: 70%;">
+
+3. Click on the "Create new secret key" button
+<img src=https://raw.githubusercontent.com/G5andeepD/module-ballerinax-openai-images/docs/docs/setup/resources/create-new-secrete-key.png alt="Twitter Developer Portal" style="width: 70%;">
+
+4. Fill the details and click on Create secret key
+<img src=https://raw.githubusercontent.com/G5andeepD/module-ballerinax-openai-images/docs/docs/setup/resources/saved-key.png alt="Twitter Developer Portal" style="width: 70%;">
+
+5. Store the secret key securely to use in your application
 
 ## Quickstart
 
@@ -20,13 +35,21 @@ import ballerina/io;
 ```
 
 ### Step 2: Create a new connector instance
-Create and initialize a `finetunes:Client` with the  obtained `apiKey`.
+
+1. Create a `Config.toml` file and, configure the obtained secret key in the above steps as follows:
+
+```bash
+token = "<Secret Key>"
+```
+
+2. Create and initialize a `finetunes:Client` with the  obtained `apiKey`.
+
 ```ballerina
-    finetunes:Client finetunesClient = check new ({
-        auth: {
-            token: "sk-XXXXXXXXX"
-        }
-    });
+finetunes:Client finetunesClient = check new ({
+    auth: {
+        token
+    }
+});
 ```
 
 ### Step 3: Invoke the connector operation
@@ -34,7 +57,7 @@ Create and initialize a `finetunes:Client` with the  obtained `apiKey`.
 
    Following is an example on fine tuning the gpt-3.5-turbo model:
 
-   ```ballerina
+    ```ballerina
     public function main() returns error? {
 
         finetunes:CreateFileRequest req = {
@@ -56,7 +79,7 @@ Create and initialize a `finetunes:Client` with the  obtained `apiKey`.
         
         io:println(fineTuneResponse.id);
     }
-   ``` 
+    ``` 
 2. Use the `bal run` command to compile and run the Ballerina program.
 
 ## Examples
