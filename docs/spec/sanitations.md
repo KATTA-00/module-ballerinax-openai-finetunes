@@ -7,7 +7,7 @@ _Edition_: Swan Lake
 
 This document records the sanitation done on top of the official OpenAPI specification from OpenAI Finetune. The OpenAPI specification is obtained from the [OpenAPI specification for the OpenAI API](https://github.com/openai/openai-openapi/blob/master/openapi.yaml). These changes are implemented to enhance the overall usability and readability of the generated client.
 
-1. **Change the status_details property parameters of the 'OpenAIFile' object**:
+1. **Changed the `status_details` property parameters of the `OpenAIFile` object**:
    - **Original**:
       - Deprecated: `true`
       - Nullable parameter: Not included
@@ -19,12 +19,12 @@ This document records the sanitation done on top of the official OpenAPI specifi
    - **Reasons**: The original configuration was generated successfully, but it caused a compile-time error. Updating the parameters resolved this error, enhancing the overall functionality and ensuring smooth compilation.
 
 
-2. **Removed the `default:null` property of certain schemas**:
+2. **Removed the `default:null` property from the below schemas**:
 
    - **Changed Schemas**: `CreateCompletionRequest`,`ChatCompletionStreamOptions`,`CreateChatCompletionRequest`
 
    - **Original**:
-      - defaullt: `null`
+      - default: `null`
 
    - **Updated**:
       - Removed the `default` parameter 
