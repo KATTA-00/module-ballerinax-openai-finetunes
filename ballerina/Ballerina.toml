@@ -1,11 +1,11 @@
 [package]
-distribution = "2201.9.0"
+distribution = "2201.9.2"
 org = "ballerinax"
 name = "openai.finetunes"
-version = "0.1.0"
+version = "2.0.0"
 license = ["Apache-2.0"]
 authors = ["Ballerina"]
-keywords = []
+keywords = ["AI/Fine-tunes", "OpenAI", "Cost/Paid", "Files", "Models", "Vendor/OpenAI"]
 icon = "icon.png"
 repository = "https://github.com/KATTA-00/module-ballerinax-openai-finetunes"
 
